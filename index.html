@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title> My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
@@ -84,7 +84,6 @@
         </div>
     </section>
     
-
     <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
@@ -173,7 +172,7 @@
                         <textarea id="message" required></textarea>
                         <label for="message">Message</label>
                     </div>
-                    <button type="submit" class="btn">Send Message</button>
+                    <a id="sendMail" class="btn">Send Message</a>
                 </form>
             </div>
         </div>
@@ -186,6 +185,20 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById("sendMail").addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+    
+            // mailto link generate karna
+            let subject = encodeURIComponent("New Contact Form Submission");
+            let body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    
+            // `<a>` tag ka href dynamically update karna
+            this.href = `mailto:malikanhaiyalal35@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
 </body>
 
 </html>

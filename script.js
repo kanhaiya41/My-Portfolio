@@ -76,3 +76,17 @@ const observeElements = (elements, className) => {
 // Observe project cards
 const projectCards = document.querySelectorAll('.project-card');
 observeElements(projectCards, 'fade-in');
+
+//for send mail
+document.getElementById("sendMail").addEventListener("click", function() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    // mailto link generate karna
+    let subject = encodeURIComponent("New Contact Form Submission");
+    let body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+
+    // `<a>` tag ka href dynamically update karna
+    this.href = `mailto:malikanhaiyalal35@gmail.com?subject=${subject}&body=${body}`;
+});
